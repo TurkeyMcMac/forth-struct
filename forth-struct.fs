@@ -5,10 +5,10 @@
 : ARRAYFLD 2 PICK ROT ALIGNSIZE * ;
 
 ( 1align 1size 2align 2size -- unionalign unionsize )
-: UNIONFLD ROT MAX >R MAX R> ;
+: 2UNIONFLD ROT MAX >R MAX R> ;
 
 ( 1align 1size ... nalign nsize n -- unionalign unionsize )
-: UNIONSFLD 1 ?DO UNIONFLD LOOP ;
+: UNIONFLD 1 ?DO 2UNIONFLD LOOP ;
 
 ( -- cellalign cellsize )
 : CELLFLD 1 CELLS DUP ;
