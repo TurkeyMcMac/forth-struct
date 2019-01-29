@@ -21,7 +21,7 @@
 
 ( structalign structsize fieldalign fieldsize -- structalign' structsize' )
 : FIELDNAME
-	OVER 4 PICK MAX	>R
+	OVER 4 ROLL MAX	>R
 	>R SWAP ALIGNSIZE
 	DUP R> + R> SWAP ROT
 	CREATE , DOES> @ +
