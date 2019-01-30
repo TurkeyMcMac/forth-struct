@@ -42,10 +42,13 @@ STRUCTURE: \ PERSON
  STRUCTEMBED PERSON.FLD
 ;STRUCTURE
 
-( firstname namelen person -- )
-: PERSON.FIRST= >R R@ PERSON.FIRST SWAP >R R@ MOVE R> R> PERSON.FIRSTLEN C! ;
-( lastname namelen person -- )
-: PERSON.LAST= >R R@ PERSON.LAST SWAP >R R@ MOVE R> R> PERSON.LASTLEN C! ;
+( name len namedest lendest -- )
+: PERSON.NAME= ROT >R R@ SWAP C! R> MOVE ;
+
+( name len person -- )
+: PERSON.FIRST= DUP PERSON.FIRST SWAP PERSON.FIRSTLEN PERSON.NAME= ;
+( name len person -- )
+: PERSON.LAST= DUP PERSON.LAST SWAP PERSON.LASTLEN PERSON.NAME= ;
 ( year month day person -- )
 : PERSON.BIRTH= PERSON.BIRTH DATE.INIT ;
 ( year month day person -- )
