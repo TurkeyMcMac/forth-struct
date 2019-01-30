@@ -1,6 +1,9 @@
 ( align size -- alignedsize )
 : ALIGNSIZE OVER + 1 - OVER / * ;
 
+( -- voidalign voidsize )
+: VOIDFLD 1 0 ;
+
 ( itemalign itemsize length -- arrayalign arraysize )
 : ARRAYFLD 2 PICK ROT ALIGNSIZE * ;
 
@@ -8,7 +11,7 @@
 : 2UNIONFLD ROT MAX >R MAX R> ;
 
 ( 1align 1size ... nalign nsize n -- unionalign unionsize )
-: UNIONFLD 1 ?DO 2UNIONFLD LOOP ;
+: UNIONFLD DUP 0 <= IF DROP VOIDFLD ELSE 1 ?DO 2UNIONFLD LOOP THEN ;
 
 ( -- cellalign cellsize )
 : CELLFLD 1 CELLS DUP ;
@@ -22,8 +25,8 @@
 ( -- flagalign flagsize )
 : FLAGFLD 1 CHARS DUP ;
 
-( -- 1 0 )
-: STRUCTURE: 1 0 ;
+( -- structalign structsize )
+: STRUCTURE: VOIDFLD ;
 
 ( structalign structsize fieldalign fieldsize -- structalign' structsize' )
 : FIELDNAME
