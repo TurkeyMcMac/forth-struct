@@ -13,8 +13,14 @@
 ( -- cellalign cellsize )
 : CELLFLD 1 CELLS DUP ;
 
+( -- dcellalign dcellsize )
+: DCELLFLD 2 CELLS DUP ;
+
 ( -- charalign charsize )
 : CHARFLD 1 CHARS DUP ;
+
+( -- flagalign flagsize )
+: FLAGFLD 1 CHARS DUP ;
 
 ( -- 1 0 )
 : STRUCTURE: 1 0 ;
