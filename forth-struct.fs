@@ -51,5 +51,8 @@
 ( structalign structsize -- structalign structsize )
 : STRUCTEMBED 2DUP CREATE , , DOES> DUP CELL+ @ SWAP @ ;
 
+( structalign structsize -- structalign structalignedsize )
+: STRUCTALIGNSIZE OVER SWAP ALIGNSIZE ;
+
 ( structalign structsize -- )
 : ;STRUCTURE 2DROP ;
