@@ -48,6 +48,7 @@
 ( structalign structsize structalign' -- structalign' structsize )
 : STRUCTSETALIGN ROT DROP SWAP ;
 
+( structalign structsize -- structalign structsize )
 : STRUCTEMBED 2DUP CREATE , , DOES> DUP CELL+ @ SWAP @ ;
 
 ( structalign structsize -- )
